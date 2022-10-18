@@ -1,24 +1,13 @@
-// Connecting elements
 const currentNumber = document.querySelector(".currentNumber");
-
 const previousNumber = document.querySelector(".previousNumber p");
-
 const mathSign = document.querySelector(".mathSign");
-
 const numbersButtons = document.querySelectorAll(".number");
-
 const operatorsButtons = document.querySelectorAll(".operator");
-
 const equalsButton = document.querySelector(".equals");
-
 const clearButton = document.querySelector(".clear");
-
 const calculatorHistory = document.querySelector(".history");
-
 const historyBtn = document.querySelector(".history-btn");
-
 let result = "";
-
 // Prevent to insert more than one dot
 function displayNumbers() {
   if (this.textContent === "." && currentNumber.innerHTML.includes(".")) return;
@@ -27,7 +16,6 @@ function displayNumbers() {
   //display values
   currentNumber.innerHTML += this.textContent;
 }
-
 //insert operators to display view
 function operate() {
   if (currentNumber.innerHTML === "" && this.textContent === "-") {
@@ -36,7 +24,6 @@ function operate() {
   } else if (currentNumber.innerHTML === "") {
     return;
   }
-
   //block inserting operators before numbers
   if (mathSign.innerHTML !== "") {
     showResult();
@@ -45,15 +32,12 @@ function operate() {
   mathSign.innerHTML = this.textContent;
   currentNumber.innerHTML = "";
 }
-
 //core logic of operators on numbers
 function showResult() {
   if (previousNumber.innerHTML === "" || currentNumber.innerHTML === "") return;
-
   let a = Number(currentNumber.innerHTML);
   let b = Number(previousNumber.innerHTML);
   let operator = mathSign.innerHTML;
-
   switch (operator) {
     case "+":
       result = a + b;
